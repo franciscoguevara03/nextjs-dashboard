@@ -15,6 +15,8 @@ export async function fetchRevenue() {
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
 
   try {
+    
+    await new Promise((resolve) => setTimeout(resolve, 3000));
     // Artificially delay a reponse for demo purposes.
     // Don't do this in real life :)
 
@@ -34,6 +36,8 @@ export async function fetchRevenue() {
 
 export async function fetchLatestInvoices() {
   try {
+    
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     const data = await sql<LatestInvoiceRaw>`
       SELECT invoices.amount, customers.name, customers.image_url, customers.email, invoices.id
       FROM invoices
